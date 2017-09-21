@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="MosaicDiscover" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="v9V-g7-sqj">
+                                <rect key="frame" x="0.0" y="28" width="768" height="996"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewLayout key="collectionViewLayout" id="JuX-RQ-y3S" customClass="TRMosaicLayout" customModule="MosaicDiscover"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="CollectionLayoutCell" id="p18-oq-RsV" customClass="CollectionViewCell" customModule="MosaicDiscover">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OIb-nK-eT9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="woX-v4-3im">
+                                                    <rect key="frame" x="0.0" y="33" width="49" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="woX-v4-3im" secondAttribute="height" multiplier="49:15" id="0CN-YL-j2S"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="OIb-nK-eT9" secondAttribute="trailing" id="3Ua-bE-P8r"/>
+                                            <constraint firstItem="OIb-nK-eT9" firstAttribute="leading" secondItem="p18-oq-RsV" secondAttribute="leading" id="3vY-ob-RCK"/>
+                                            <constraint firstItem="OIb-nK-eT9" firstAttribute="top" secondItem="p18-oq-RsV" secondAttribute="top" id="CCd-II-azN"/>
+                                            <constraint firstAttribute="trailing" secondItem="woX-v4-3im" secondAttribute="trailing" constant="1" id="JsB-VH-W9P"/>
+                                            <constraint firstAttribute="bottom" secondItem="OIb-nK-eT9" secondAttribute="bottom" id="bpx-B3-99P"/>
+                                            <constraint firstItem="woX-v4-3im" firstAttribute="top" relation="greaterThanOrEqual" secondItem="p18-oq-RsV" secondAttribute="top" constant="33" id="mdx-Qr-wfp"/>
+                                            <constraint firstItem="woX-v4-3im" firstAttribute="leading" secondItem="p18-oq-RsV" secondAttribute="leading" id="yjD-Te-Ae9"/>
+                                            <constraint firstAttribute="bottom" secondItem="woX-v4-3im" secondAttribute="bottom" constant="2" id="zYZ-1e-PtS"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="woX-v4-3im" id="crt-Bi-oCj"/>
+                                            <outlet property="imageView" destination="OIb-nK-eT9" id="9Da-iK-Vdz"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="dLz-1e-ejH"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="M2i-mM-ElQ"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="v9V-g7-sqj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="D8F-9U-a3B"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="v9V-g7-sqj" secondAttribute="bottom" id="Kmf-1V-7Ce"/>
+                            <constraint firstAttribute="trailing" secondItem="v9V-g7-sqj" secondAttribute="trailing" id="VhI-nX-7tZ"/>
+                            <constraint firstItem="v9V-g7-sqj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bWs-cK-N2I"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="v9V-g7-sqj" id="KmF-uw-1Z2"/>
+                        <outlet property="mosaicLayout" destination="JuX-RQ-y3S" id="hAZ-Jq-fDz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.1875" y="123.63281249999999"/>
+        </scene>
+    </scenes>
+</document>

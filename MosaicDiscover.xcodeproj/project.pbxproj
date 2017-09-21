@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		320704501F72FCEE00194DBC /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3207044B1F72FCEE00194DBC /* .gitkeep */; };
+		320704511F72FCEE00194DBC /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3207044D1F72FCEE00194DBC /* .gitkeep */; };
+		320704521F72FCEE00194DBC /* TRMosaicColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3207044E1F72FCEE00194DBC /* TRMosaicColumn.swift */; };
+		320704531F72FCEE00194DBC /* TRMosaicLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3207044F1F72FCEE00194DBC /* TRMosaicLayout.swift */; };
+		320704551F72FF5500194DBC /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320704541F72FF5500194DBC /* MainModel.swift */; };
+		327B5BDF1F72DFB70029D0CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B5BDE1F72DFB70029D0CC /* AppDelegate.swift */; };
+		327B5BE11F72DFB70029D0CC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B5BE01F72DFB70029D0CC /* MainViewController.swift */; };
+		327B5BE41F72DFB70029D0CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327B5BE21F72DFB70029D0CC /* Main.storyboard */; };
+		327B5BE61F72DFB70029D0CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 327B5BE51F72DFB70029D0CC /* Assets.xcassets */; };
+		327B5BE91F72DFB70029D0CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327B5BE71F72DFB70029D0CC /* LaunchScreen.storyboard */; };
+		32F104881F7306D700BCEE89 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F104871F7306D700BCEE89 /* CollectionViewCell.swift */; };
+		D8D7D6D964813E0202E6873D /* Pods_MosaicDiscover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377980373883B1E897BAE491 /* Pods_MosaicDiscover.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3207044B1F72FCEE00194DBC /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		3207044D1F72FCEE00194DBC /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		3207044E1F72FCEE00194DBC /* TRMosaicColumn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMosaicColumn.swift; sourceTree = "<group>"; };
+		3207044F1F72FCEE00194DBC /* TRMosaicLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMosaicLayout.swift; sourceTree = "<group>"; };
+		320704541F72FF5500194DBC /* MainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		327B5BDB1F72DFB70029D0CC /* MosaicDiscover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MosaicDiscover.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		327B5BDE1F72DFB70029D0CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		327B5BE01F72DFB70029D0CC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		327B5BE31F72DFB70029D0CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		327B5BE51F72DFB70029D0CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		327B5BE81F72DFB70029D0CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		327B5BEA1F72DFB70029D0CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32F104871F7306D700BCEE89 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		377980373883B1E897BAE491 /* Pods_MosaicDiscover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MosaicDiscover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		554F432F0E6313987FDD7CDE /* Pods-MosaicDiscover.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MosaicDiscover.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MosaicDiscover/Pods-MosaicDiscover.debug.xcconfig"; sourceTree = "<group>"; };
+		70460D43651BBCD35B3480F7 /* Pods-MosaicDiscover.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MosaicDiscover.release.xcconfig"; path = "Pods/Target Support Files/Pods-MosaicDiscover/Pods-MosaicDiscover.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		327B5BD81F72DFB70029D0CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8D7D6D964813E0202E6873D /* Pods_MosaicDiscover.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		320704491F72FCEE00194DBC /* TRMosaicLayout */ = {
+			isa = PBXGroup;
+			children = (
+				3207044A1F72FCEE00194DBC /* Assets */,
+				3207044C1F72FCEE00194DBC /* Classes */,
+			);
+			path = TRMosaicLayout;
+			sourceTree = SOURCE_ROOT;
+		};
+		3207044A1F72FCEE00194DBC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3207044B1F72FCEE00194DBC /* .gitkeep */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		3207044C1F72FCEE00194DBC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3207044D1F72FCEE00194DBC /* .gitkeep */,
+				3207044E1F72FCEE00194DBC /* TRMosaicColumn.swift */,
+				3207044F1F72FCEE00194DBC /* TRMosaicLayout.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		327B5BD21F72DFB70029D0CC = {
+			isa = PBXGroup;
+			children = (
+				327B5BDD1F72DFB70029D0CC /* MosaicDiscover */,
+				327B5BDC1F72DFB70029D0CC /* Products */,
+				F95DE14E7E3540DD1198F4C1 /* Pods */,
+				6E8CD5EF131643BEA7D048FC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		327B5BDC1F72DFB70029D0CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				327B5BDB1F72DFB70029D0CC /* MosaicDiscover.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		327B5BDD1F72DFB70029D0CC /* MosaicDiscover */ = {
+			isa = PBXGroup;
+			children = (
+				320704491F72FCEE00194DBC /* TRMosaicLayout */,
+				327B5BDE1F72DFB70029D0CC /* AppDelegate.swift */,
+				320704541F72FF5500194DBC /* MainModel.swift */,
+				327B5BE01F72DFB70029D0CC /* MainViewController.swift */,
+				327B5BE21F72DFB70029D0CC /* Main.storyboard */,
+				32F104871F7306D700BCEE89 /* CollectionViewCell.swift */,
+				327B5BE51F72DFB70029D0CC /* Assets.xcassets */,
+				327B5BE71F72DFB70029D0CC /* LaunchScreen.storyboard */,
+				327B5BEA1F72DFB70029D0CC /* Info.plist */,
+			);
+			path = MosaicDiscover;
+			sourceTree = "<group>";
+		};
+		6E8CD5EF131643BEA7D048FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				377980373883B1E897BAE491 /* Pods_MosaicDiscover.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F95DE14E7E3540DD1198F4C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				554F432F0E6313987FDD7CDE /* Pods-MosaicDiscover.debug.xcconfig */,
+				70460D43651BBCD35B3480F7 /* Pods-MosaicDiscover.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		327B5BDA1F72DFB70029D0CC /* MosaicDiscover */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 327B5BED1F72DFB70029D0CC /* Build configuration list for PBXNativeTarget "MosaicDiscover" */;
+			buildPhases = (
+				A1A0A795133C90D6842F46B7 /* [CP] Check Pods Manifest.lock */,
+				327B5BD71F72DFB70029D0CC /* Sources */,
+				327B5BD81F72DFB70029D0CC /* Frameworks */,
+				327B5BD91F72DFB70029D0CC /* Resources */,
+				EE9FF12168468FF6FCE27A4E /* [CP] Embed Pods Frameworks */,
+				E2768F37A6AF6E3F249478EE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MosaicDiscover;
+			productName = MosaicDiscover;
+			productReference = 327B5BDB1F72DFB70029D0CC /* MosaicDiscover.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		327B5BD31F72DFB70029D0CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = WSG4FUN;
+				TargetAttributes = {
+					327B5BDA1F72DFB70029D0CC = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = V7VJYVG3RH;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 327B5BD61F72DFB70029D0CC /* Build configuration list for PBXProject "MosaicDiscover" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 327B5BD21F72DFB70029D0CC;
+			productRefGroup = 327B5BDC1F72DFB70029D0CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				327B5BDA1F72DFB70029D0CC /* MosaicDiscover */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		327B5BD91F72DFB70029D0CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				327B5BE91F72DFB70029D0CC /* LaunchScreen.storyboard in Resources */,
+				327B5BE61F72DFB70029D0CC /* Assets.xcassets in Resources */,
+				320704511F72FCEE00194DBC /* .gitkeep in Resources */,
+				327B5BE41F72DFB70029D0CC /* Main.storyboard in Resources */,
+				320704501F72FCEE00194DBC /* .gitkeep in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A1A0A795133C90D6842F46B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E2768F37A6AF6E3F249478EE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MosaicDiscover/Pods-MosaicDiscover-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE9FF12168468FF6FCE27A4E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MosaicDiscover/Pods-MosaicDiscover-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		327B5BD71F72DFB70029D0CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				327B5BE11F72DFB70029D0CC /* MainViewController.swift in Sources */,
+				327B5BDF1F72DFB70029D0CC /* AppDelegate.swift in Sources */,
+				32F104881F7306D700BCEE89 /* CollectionViewCell.swift in Sources */,
+				320704521F72FCEE00194DBC /* TRMosaicColumn.swift in Sources */,
+				320704551F72FF5500194DBC /* MainModel.swift in Sources */,
+				320704531F72FCEE00194DBC /* TRMosaicLayout.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		327B5BE21F72DFB70029D0CC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				327B5BE31F72DFB70029D0CC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		327B5BE71F72DFB70029D0CC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				327B5BE81F72DFB70029D0CC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		327B5BEB1F72DFB70029D0CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		327B5BEC1F72DFB70029D0CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		327B5BEE1F72DFB70029D0CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 554F432F0E6313987FDD7CDE /* Pods-MosaicDiscover.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V7VJYVG3RH;
+				INFOPLIST_FILE = MosaicDiscover/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wsg.MosaicDiscover;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		327B5BEF1F72DFB70029D0CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70460D43651BBCD35B3480F7 /* Pods-MosaicDiscover.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V7VJYVG3RH;
+				INFOPLIST_FILE = MosaicDiscover/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wsg.MosaicDiscover;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		327B5BD61F72DFB70029D0CC /* Build configuration list for PBXProject "MosaicDiscover" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				327B5BEB1F72DFB70029D0CC /* Debug */,
+				327B5BEC1F72DFB70029D0CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		327B5BED1F72DFB70029D0CC /* Build configuration list for PBXNativeTarget "MosaicDiscover" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				327B5BEE1F72DFB70029D0CC /* Debug */,
+				327B5BEF1F72DFB70029D0CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 327B5BD31F72DFB70029D0CC /* Project object */;
+}
