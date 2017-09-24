@@ -9,12 +9,12 @@
 import Foundation
 
 class MainModel: NSObject {
-    private var serverUrl: String?
-    private var captionData : Array<String> = []
-
+    fileprivate var serverUrl: String?
+    fileprivate var imageCaption : Array<String> = []
+    
     init(_ serverUrl: String?) {
         self.serverUrl = serverUrl
-        self.captionData = [
+        self.imageCaption = [
             "Tree Of The Sea",
             "Hero Of The Ancestors",
             "Witches Of The Gods",
@@ -48,15 +48,34 @@ class MainModel: NSObject {
         ]
     }
     
-    public func getCaptionDataCount() -> Int {
-        return self.captionData.count
+    func loadDataFromServer() {
+        let queue = OperationQueue()
+        
+        for caption in self.imageCaption {
+            queue.addOperation({ [weak self] in
+                guard let strongSelf    = self else { return }
+                let randWidth           = 150 + arc4random() % 300
+                let randHeight          = 150 + arc4random() % 300
+                let loadServerUrl       = strongSelf.serverUrl! + "/" + String(randWidth) + "/" + String(randHeight)
+                let serverUrl           = URL(string: loadServerUrl)
+                let imageData           = try? Data(contentsOf: serverUrl!)
+
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mainViewModel:loadedData"),
+                                                object: (caption, imageData))
+            })
+
+    }
     }
     
-    public func getLoadData(_ index: Int) -> (String, String) {
-        let randWidth       = 200 + arc4random() % 250
-        let randHeight      = 200 + arc4random() % 200
-        let loadServerUrl   = self.serverUrl! + "/" + String(randWidth) + "/" + String(randHeight)
-        let result = (loadServerUrl, self.captionData[index])
-        return result
+    func getImageCount() -> Int {
+        return self.imageCaption.count
+    }
+    
+    func getImageCaption(by index: Int) -> String {
+        if index < self.imageCaption.count {
+            return self.imageCaption[index]
+        }
+        
+        return ""
     }
 }

@@ -11,12 +11,13 @@ import UIKit
 class MainViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var mosaicLayout: TRMosaicLayout!
-    
-    fileprivate let model = MainModel.init("http://lorempixel.com/")
+
+    fileprivate var viewModel: MainViewModel? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mosaicLayout.delegate = self
+        self.viewModel = MainViewModel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +34,8 @@ extension MainViewController : TRMosaicLayoutDelegate {
     func collectionView(_ collectionView:UICollectionView,
                         layout collectionViewLayout: TRMosaicLayout,
                         insetAtSection:Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
+        let offset: CGFloat = 1
+        return UIEdgeInsets(top: offset, left: offset, bottom: offset, right: offset)
     }
     
     func heightForSmallMosaicCell() -> CGFloat {
@@ -48,13 +50,12 @@ extension MainViewController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.model.getCaptionDataCount()
+        return (self.viewModel?.getImageCount())!
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionLayoutCell", for: indexPath) as! CollectionViewCell
-        let (loadUrl, loadCaption) = self.model.getLoadData(indexPath.row)
-        cell.setupCell(loadUrl, loadCaption)
+         cell.setupCell(indexPath.row, self.viewModel)
         return cell
     }
 }
