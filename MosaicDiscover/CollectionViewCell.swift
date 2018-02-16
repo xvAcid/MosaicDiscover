@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
@@ -15,39 +14,27 @@ class CollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = UIColor(colorLiteralRed: Float(arc4random() % 100) / 100.0,
-                                       green: Float(arc4random() % 100) / 100.0,
-                                       blue: Float(arc4random() % 100) / 100.0,
-                                       alpha: 1)
+        self.backgroundColor = getRandomColorBackground()
+    }
+    
+    public func fill(model: ImageModel) {
+        captionLabel.text = model.caption
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(updateImageData),
-                                               name: NSNotification.Name(rawValue: "cell:updateImageData"),
-                                               object: nil)
+        guard let data = model.data else { return }
+        imageView.image = UIImage(data: data)
+        backgroundColor = UIColor.white
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    override func prepareForReuse() {
+        captionLabel.text   = ""
+        imageView.image     = nil
+        backgroundColor     = getRandomColorBackground()
     }
     
-    public func setupCell(_ index: Int, _ viewModel: MainViewModel?) {
-        let (caption, data) = (viewModel?.getData(by: index))!
-        
-        captionLabel.text = caption
-        if data != nil {
-            imageView.image = UIImage(data: data!)
-            backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
-        }
-    }
-    
-    public func updateImageData(notification: Notification) {
-        let data = notification.object as? (String, Data)
-        if data != nil && data?.0 == captionLabel.text {
-            DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.imageView.image = UIImage(data: (data?.1)!)
-                strongSelf.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
-            }
-        }
+    private func getRandomColorBackground() -> UIColor {
+        return UIColor(red: CGFloat(arc4random() % 100) / 100.0,
+                       green: CGFloat(arc4random() % 100) / 100.0,
+                       blue: CGFloat(arc4random() % 100) / 100.0,
+                       alpha: 1)
     }
 }

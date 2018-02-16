@@ -7,46 +7,54 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class MainViewModel: NSObject {
-    fileprivate var model: MainModel? = nil
-    fileprivate var imageContainer = [String: Data?]()
+    var dataImages = Variable<[ImageModel]>([])
+    let disposeBag = DisposeBag()
     
+    private let model = MainModel()
+
     override init() {
         super.init()
+    }
+    
+    func obtainData() {
+        let url = URL(string: "http://lorempixel.com/")
+        model.createCaptions()
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(loadedImageData),
-                                               name: NSNotification.Name(rawValue: "mainViewModel:loadedData"),
-                                               object: nil)
-
-        model = MainModel("http://lorempixel.com/")
-        model?.loadDataFromServer()
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-
-    
-    func getImageCount() -> Int {
-        return (model?.getImageCount())!
-    }
-    
-    func getData(by index: Int) -> (String, Data?) {
-        let caption = (model?.getImageCaption(by: index))!
-        let data    = self.imageContainer[caption]
-        if data != nil {
-            return (caption, data!)
-        }
-        return (caption, nil)
-    }
-
-    func loadedImageData(notification: Notification) {
-        let (caption, data) = (notification.object as? (String, Data))!
-        self.imageContainer[caption] = data
+        let observable = loadingData(url: url!)
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "cell:updateImageData"),
-                                        object: (caption, data))
+        observable.subscribe(onNext: { [weak self] data in
+            self?.dataImages.value.append(data)
+        }, onError: { error in
+            print(error.localizedDescription)
+        }).disposed(by: disposeBag)
+    }
+    
+    private func loadingData(url: URL) -> Observable<ImageModel> {
+        return Observable.create({ [weak self] observer -> Disposable in
+            guard let `self` = self else { return Disposables.create() }
+
+            for caption in self.model.captions {
+                let randWidth       = 150 + arc4random() % 300
+                let randHeight      = 150 + arc4random() % 300
+                let loadServerUrl   = url.absoluteString + "/\(randWidth)/\(randHeight)"
+                print("starting loading \(loadServerUrl)")
+                do {
+                    let data        = ImageModel()
+                    data.caption    = caption
+                    data.data       = try Data(contentsOf: URL(string: loadServerUrl)!)
+                    observer.onNext(data)
+                    print("loaded success \(loadServerUrl)")
+                } catch let error {
+                    observer.onError(error)
+                }
+            }
+            
+            observer.onCompleted()
+            return Disposables.create()
+        }).share(replay: 0, scope: .forever)
     }
 }

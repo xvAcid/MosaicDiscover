@@ -8,13 +8,18 @@
 
 import Foundation
 
+class ImageModel {
+    var caption = ""
+    var data: Data? = nil
+}
+
+
+
 class MainModel: NSObject {
-    fileprivate var serverUrl: String?
-    fileprivate var imageCaption : Array<String> = []
+    var captions : Array<String> = []
     
-    init(_ serverUrl: String?) {
-        self.serverUrl = serverUrl
-        self.imageCaption = [
+    func createCaptions() {
+        captions = [
             "Tree Of The Sea",
             "Hero Of The Ancestors",
             "Witches Of The Gods",
@@ -44,38 +49,20 @@ class MainModel: NSObject {
             "Staff Of The Stars",
             "Surprise Of Yesterday",
             "Guarded By My Dreams",
-            "Begging In The City"
-        ]
+            "Begging In The City"]
     }
     
-    func loadDataFromServer() {
-        let queue = OperationQueue()
-        
-        for caption in self.imageCaption {
-            queue.addOperation({ [weak self] in
-                guard let strongSelf    = self else { return }
-                let randWidth           = 150 + arc4random() % 300
-                let randHeight          = 150 + arc4random() % 300
-                let loadServerUrl       = strongSelf.serverUrl! + "/" + String(randWidth) + "/" + String(randHeight)
-                let serverUrl           = URL(string: loadServerUrl)
-                let imageData           = try? Data(contentsOf: serverUrl!)
-
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mainViewModel:loadedData"),
-                                                object: (caption, imageData))
-            })
-
-    }
-    }
-    
-    func getImageCount() -> Int {
-        return self.imageCaption.count
-    }
-    
-    func getImageCaption(by index: Int) -> String {
-        if index < self.imageCaption.count {
-            return self.imageCaption[index]
-        }
-        
-        return ""
-    }
+//    func loadDataFromServer() {
+//        for caption in captions {
+//            guard let strongSelf    = self else { return }
+//            let randWidth           = 150 + arc4random() % 300
+//            let randHeight          = 150 + arc4random() % 300
+//            let loadServerUrl       = strongSelf.serverUrl! + "/" + String(randWidth) + "/" + String(randHeight)
+//            let serverUrl           = URL(string: loadServerUrl)
+//            do {
+//                let imageData           = try Data(contentsOf: serverUrl!)
+//            } catch let error {
+//            }
+//        }
+//    }
 }
