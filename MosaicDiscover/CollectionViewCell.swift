@@ -7,28 +7,47 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
+    private var disposable: Disposable? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = getRandomColorBackground()
+        backgroundColor = getRandomColorBackground()
     }
     
     public func fill(model: ImageModel) {
         captionLabel.text = model.caption
-        
-        guard let data = model.data else { return }
-        imageView.image = UIImage(data: data)
-        backgroundColor = UIColor.white
+    
+        disposable = model.data.asObservable().observeOn(MainScheduler.instance).subscribe(onNext: { data in
+            guard let data = data else { return }
+            self.backgroundColor = UIColor.white
+            if model.firstLoaded {
+                model.firstLoaded       = false
+                let animation           = CABasicAnimation(keyPath: "opacity")
+                animation.fromValue     = 0.0
+                animation.toValue       = 1.0
+                animation.duration      = 0.1 + Double(arc4random() % 20) / 20.0
+                self.imageView.image    = UIImage(data: data)
+                self.imageView.layer.add(animation, forKey: nil)
+            } else {
+                self.imageView.image = UIImage(data: data)
+            }
+        }, onError: { error in
+            self.imageView.image = nil
+            self.backgroundColor = self.getRandomColorBackground()
+        })
     }
     
     override func prepareForReuse() {
         captionLabel.text   = ""
         imageView.image     = nil
         backgroundColor     = getRandomColorBackground()
+        disposable?.dispose()
     }
     
     private func getRandomColorBackground() -> UIColor {

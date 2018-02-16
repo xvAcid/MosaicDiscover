@@ -19,11 +19,12 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         mosaicLayout.delegate = self
         viewModel = MainViewModel()
-        viewModel!.obtainData()
-        
+
         let _ = viewModel!.dataImages.asObservable().subscribe({ [weak self] event in
             self?.collectionView.reloadData()
         })
+        
+        viewModel!.obtainData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +60,8 @@ extension MainViewController : UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionLayoutCell", for: indexPath) as! CollectionViewCell
-//         cell.fill(indexPath.row, self.viewModel)
+        guard let model = viewModel?.dataImages.value[indexPath.row] else { return cell }
+        cell.fill(model: model)
         return cell
     }
 }

@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class ImageModel {
     var caption = ""
-    var data: Data? = nil
+    var data = Variable<Data?>(nil)
+    var firstLoaded = true
 }
-
-
 
 class MainModel: NSObject {
     var captions : Array<String> = []
@@ -49,20 +50,9 @@ class MainModel: NSObject {
             "Staff Of The Stars",
             "Surprise Of Yesterday",
             "Guarded By My Dreams",
-            "Begging In The City"]
+            "Begging In The City",
+            "In The City",
+            "Raven Of",
+            "Future Of Lions"]
     }
-    
-//    func loadDataFromServer() {
-//        for caption in captions {
-//            guard let strongSelf    = self else { return }
-//            let randWidth           = 150 + arc4random() % 300
-//            let randHeight          = 150 + arc4random() % 300
-//            let loadServerUrl       = strongSelf.serverUrl! + "/" + String(randWidth) + "/" + String(randHeight)
-//            let serverUrl           = URL(string: loadServerUrl)
-//            do {
-//                let imageData           = try Data(contentsOf: serverUrl!)
-//            } catch let error {
-//            }
-//        }
-//    }
 }

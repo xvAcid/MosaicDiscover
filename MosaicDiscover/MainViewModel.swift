@@ -11,50 +11,34 @@ import RxSwift
 import RxCocoa
 
 class MainViewModel: NSObject {
-    var dataImages = Variable<[ImageModel]>([])
-    let disposeBag = DisposeBag()
-    
-    private let model = MainModel()
-
-    override init() {
-        super.init()
-    }
+    var dataImages      = Variable<[ImageModel]>([])
+    private let queue   = OperationQueue()
+    private let model   = MainModel()
     
     func obtainData() {
-        let url = URL(string: "http://lorempixel.com/")
         model.createCaptions()
+        queue.maxConcurrentOperationCount = 3
         
-        let observable = loadingData(url: url!)
-        
-        observable.subscribe(onNext: { [weak self] data in
-            self?.dataImages.value.append(data)
-        }, onError: { error in
-            print(error.localizedDescription)
-        }).disposed(by: disposeBag)
+        for caption in model.captions {
+            let model = ImageModel()
+            model.caption = caption
+            dataImages.value.append(model)
+            
+            let randWidth       = 150 + arc4random() % 350
+            let randHeight      = 150 + arc4random() % 350
+            let loadServerUrl   = "http://placekitten.com/\(randWidth)/\(randHeight)"
+            
+            let operation = BlockOperation(block: {
+                model.data.value = try? Data(contentsOf: URL(string: loadServerUrl)!)
+                if model.data.value == nil {
+                }
+            })
+            
+            queue.addOperation(operation)
+        }
     }
     
-    private func loadingData(url: URL) -> Observable<ImageModel> {
-        return Observable.create({ [weak self] observer -> Disposable in
-            guard let `self` = self else { return Disposables.create() }
-
-            for caption in self.model.captions {
-                let randWidth       = 150 + arc4random() % 300
-                let randHeight      = 150 + arc4random() % 300
-                let loadServerUrl   = url.absoluteString + "/\(randWidth)/\(randHeight)"
-                print("starting loading \(loadServerUrl)")
-                do {
-                    let data        = ImageModel()
-                    data.caption    = caption
-                    data.data       = try Data(contentsOf: URL(string: loadServerUrl)!)
-                    observer.onNext(data)
-                    print("loaded success \(loadServerUrl)")
-                } catch let error {
-                    observer.onError(error)
-                }
-            }
-            
-            observer.onCompleted()
-            return Disposables.create()
-        }).share(replay: 0, scope: .forever)
+    deinit {
+        queue.cancelAllOperations()
     }
 }
